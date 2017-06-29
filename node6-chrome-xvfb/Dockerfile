@@ -40,5 +40,5 @@ RUN apt-get -y install \
 
 # Starting xfvb as a service
 ENV DISPLAY=:99
-ADD xvfb /etc/init.d/
+ADD xvfb.init /etc/init.d/xvfb
 RUN chmod 755 /etc/init.d/xvfb
