@@ -4,7 +4,7 @@ FROM node:6.11
 # Env variables
 #=========
 
-ENV CHROME_DRIVER_VERSION 2.20
+ENV CHROME_DRIVER_VERSION 2.28
 
 # Installs curl, git and SDKMan
 RUN apt-get update && apt-get install -y \
