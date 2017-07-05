@@ -21,6 +21,8 @@ RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key
 RUN echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list
 RUN apt-get update && apt-get install -y \
 	google-chrome-stable
+COPY chrome_launcher.sh /opt/google/chrome/google-chrome
+RUN chmod +x /opt/google/chrome/google-chrome
 
 # Chrome driver
 RUN wget -O /tmp/chromedriver.zip http://chromedriver.storage.googleapis.com/$CHROME_DRIVER_VERSION/chromedriver_linux64.zip
@@ -40,5 +42,5 @@ RUN apt-get -y install \
 
 # Starting xfvb as a service
 ENV DISPLAY=:99
-ADD xvfb.init /etc/init.d/xvfb
+COPY xvfb.init /etc/init.d/xvfb
 RUN chmod 755 /etc/init.d/xvfb
